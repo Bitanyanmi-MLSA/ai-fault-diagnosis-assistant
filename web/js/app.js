@@ -31,12 +31,20 @@
     el('fileInput').addEventListener('change', onFileSelected);
     el('clearMediaBtn').addEventListener('click', clearMedia);
     el('diagnoseBtn').addEventListener('click', onDiagnoseClick);
+    el('kbSelect').addEventListener('change', onKbSelectChange);
     el('settingsBtn').addEventListener('click', () => el('settingsDialog').showModal());
     el('settingsForm').addEventListener('submit', (e) => {
       if (e.submitter && e.submitter.id === 'saveSettingsBtn') {
         localStorage.setItem(STORAGE_KEY, el('apiBaseUrl').value.trim());
       }
     });
+  }
+
+  function onKbSelectChange(e) {
+    const index = e.target.value;
+    if (index === '') return;
+    const entry = knowledgeBase[Number(index)];
+    if (entry) showResult({ source: 'knowledge-base', confidence: 'high', ...entry });
   }
 
   function loadSettings() {
@@ -111,18 +119,15 @@
   // ---------- Knowledge base matching ----------
 
   function renderKbList() {
-    const list = el('kbList');
-    list.innerHTML = '';
-    knowledgeBase.forEach((entry) => {
-      const div = document.createElement('div');
-      div.className = 'kb-item';
-      div.innerHTML = `
-        <div class="plat">${escapeHtml(entry.platform)}</div>
-        <h4>${escapeHtml(entry.title)}</h4>
-        <div class="codes">${entry.codes.length ? 'Codes: ' + entry.codes.map(escapeHtml).join(', ') : ''}</div>
-      `;
-      div.addEventListener('click', () => showResult({ source: 'knowledge-base', confidence: 'high', ...entry }));
-      list.appendChild(div);
+    const select = el('kbSelect');
+    // Keep the placeholder option, drop any previously rendered entries
+    select.length = 1;
+    knowledgeBase.forEach((entry, index) => {
+      const option = document.createElement('option');
+      option.value = String(index);
+      const codes = entry.codes && entry.codes.length ? ` (${entry.codes.join(', ')})` : '';
+      option.textContent = `${entry.platform} — ${entry.title}${codes}`;
+      select.appendChild(option);
     });
   }
 

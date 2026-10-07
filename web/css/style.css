@@ -145,17 +145,7 @@ textarea { resize: vertical; }
   font-size: 0.88rem;
 }
 
-.kb-list { display: grid; gap: 10px; margin-top: 12px; }
-.kb-item {
-  border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  padding: 12px 14px;
-  cursor: pointer;
-}
-.kb-item:hover { border-color: var(--accent); background: #eff6ff; }
-.kb-item .plat { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; }
-.kb-item h4 { margin: 4px 0; font-size: 0.95rem; }
-.kb-item .codes { font-size: 0.78rem; color: var(--muted); }
+.kb-browser select { cursor: pointer; }
 
 footer {
   max-width: 760px;
