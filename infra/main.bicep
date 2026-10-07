@@ -58,7 +58,7 @@ param storageAccountName string = ''
 param vNetName string = ''
 param aiServicesName string = ''
 @description('Origin allowed to call the API via CORS (the GitHub Pages site)')
-param corsAllowedOrigin string = '*'
+param corsAllowedOrigin string = 'https://bitanyanmi-mlsa.github.io'
 @description('Id of the user identity to be used for testing and debugging. This is not required in production. Leave empty if not needed.')
 param principalId string = deployer().objectId
 
@@ -126,6 +126,7 @@ module api './app/api.bicep' = {
       AZURE_OPENAI_ENDPOINT: aiServices.outputs.endpoint
       AZURE_OPENAI_DEPLOYMENT: aiServices.outputs.gptDeploymentName
       AZURE_CLIENT_ID: apiUserAssignedIdentity.outputs.clientId
+      CORS_ALLOWED_ORIGIN: corsAllowedOrigin
     }
     virtualNetworkSubnetId: vnetEnabled ? serviceVirtualNetwork.outputs.appSubnetID : ''
   }

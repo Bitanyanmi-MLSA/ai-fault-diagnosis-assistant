@@ -1,6 +1,7 @@
 const { app } = require('@azure/functions');
 const { getAiClient } = require('../lib/aiClient');
 const { SYSTEM_PROMPT } = require('../lib/systemPrompt');
+const { withCors, preflightResponse } = require('../lib/cors');
 
 const MAX_IMAGE_BASE64_LENGTH = 8 * 1024 * 1024; // ~6MB raw image after base64 overhead
 
@@ -10,9 +11,7 @@ app.http('diagnose', {
     route: 'diagnose',
     handler: async (request, context) => {
         if (request.method === 'OPTIONS') {
-            // Platform-level CORS (configured in infra) handles the actual headers;
-            // just acknowledge the preflight here.
-            return { status: 204 };
+            return preflightResponse();
         }
 
         let payload;
@@ -84,8 +83,8 @@ app.http('diagnose', {
 });
 
 function jsonResponse(status, body) {
-    return {
+    return withCors({
         status,
         jsonBody: body,
-    };
+    });
 }
