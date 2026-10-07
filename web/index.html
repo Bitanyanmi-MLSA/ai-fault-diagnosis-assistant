@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Fault Diagnosis Assistant</title>
+<meta name="description" content="AI-powered fault diagnosis for TVs, remotes, and satellite/terrestrial decoders." />
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">📡</span>
+      <div>
+        <h1>AI Fault Diagnosis Assistant</h1>
+        <p class="subtitle">For TVs, remotes &amp; satellite / terrestrial decoders</p>
+      </div>
+    </div>
+    <button id="settingsBtn" class="icon-btn" title="API settings">⚙️</button>
+  </header>
+
+  <main>
+    <section class="card">
+      <h2>1. Describe the fault</h2>
+      <div class="field">
+        <label for="deviceType">Device type</label>
+        <select id="deviceType">
+          <option value="">Not sure / other</option>
+          <option value="decoder">Satellite/Terrestrial Decoder</option>
+          <option value="tv">TV</option>
+          <option value="remote">Remote control</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="errorCode">Error code / on-screen message (if any)</label>
+        <input id="errorCode" type="text" placeholder="e.g. E16-4, E60, 'No Signal'" />
+      </div>
+      <div class="field">
+        <label for="symptoms">Symptoms (describe what's happening)</label>
+        <textarea id="symptoms" rows="3" placeholder="e.g. Screen is black but decoder light is on, remote not responding..."></textarea>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>2. Add a photo or short video (optional, improves accuracy)</h2>
+      <div class="field">
+        <input id="fileInput" type="file" accept="image/*,video/*" capture="environment" />
+      </div>
+      <div id="previewWrap" class="preview-wrap hidden">
+        <img id="imagePreview" class="hidden" alt="Preview" />
+        <video id="videoPreview" class="hidden" controls muted></video>
+        <canvas id="frameCanvas" class="hidden"></canvas>
+        <button id="clearMediaBtn" class="link-btn">Remove</button>
+      </div>
+      <p class="hint">Videos: we automatically grab a clear frame to send for diagnosis.</p>
+    </section>
+
+    <div class="actions">
+      <button id="diagnoseBtn" class="primary-btn">🔍 Diagnose</button>
+      <span id="statusText" class="status-text"></span>
+    </div>
+
+    <section id="resultSection" class="card result-card hidden">
+      <div class="result-header">
+        <h2 id="resultTitle">Diagnosis</h2>
+        <span id="resultSource" class="badge"></span>
+      </div>
+      <div id="resultConfidence" class="confidence"></div>
+      <div id="resultBody"></div>
+    </section>
+
+    <section class="card kb-browser">
+      <h2>Browse known decoder error codes</h2>
+      <p class="hint">Instant answers for common DStv, GOtv, StarTimes and generic faults — no AI call needed.</p>
+      <div id="kbList" class="kb-list"></div>
+    </section>
+  </main>
+
+  <dialog id="settingsDialog">
+    <form method="dialog" id="settingsForm">
+      <h3>API Settings</h3>
+      <label for="apiBaseUrl">Diagnosis API base URL</label>
+      <input id="apiBaseUrl" type="url" placeholder="https://&lt;your-function-app&gt;.azurewebsites.net" />
+      <p class="hint">Set this once to your deployed Azure Function URL. Saved locally in your browser.</p>
+      <menu>
+        <button value="cancel">Cancel</button>
+        <button id="saveSettingsBtn" value="default">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <footer>
+    <p>Diagnoses are suggestions only — always follow manufacturer safety guidance and local electrical/working-at-height regulations.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

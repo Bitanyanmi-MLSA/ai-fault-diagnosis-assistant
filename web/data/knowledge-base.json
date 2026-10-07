@@ -1,0 +1,212 @@
+[
+  {
+    "id": "dstv-e16-4",
+    "platform": "DStv",
+    "codes": ["E16-4", "E16 4", "E16-0", "E16"],
+    "keywords": ["no signal", "searching for signal", "signal lost", "dish", "lnb"],
+    "title": "DStv E16 — No Satellite Signal",
+    "likelyCauses": [
+      "Dish is misaligned (wind, knock, or installation drift)",
+      "Faulty or water-damaged LNB",
+      "Damaged/loose coaxial cable or connector (F-connector corrosion)",
+      "Heavy rain/storm fade (temporary)"
+    ],
+    "steps": [
+      "Check the weather — if it's raining heavily, wait 15-20 minutes; this is often temporary rain fade.",
+      "Inspect the dish for physical movement, obstruction (tree branches, new structure) or damage.",
+      "Check all F-connectors at the LNB and at the decoder for corrosion or looseness; re-seat/tighten them.",
+      "Run the decoder's signal strength/quality test (Settings > Dish Alignment / Signal Test).",
+      "If signal is 0 or very low, re-align the dish in small steps while watching the signal meter.",
+      "If signal is unstable only on specific transponders, suspect LNB fault — swap/replace the LNB.",
+      "Confirm the dish is still pointed at the correct satellite (position can shift after storms)."
+    ],
+    "partsOrToolsNeeded": ["Spanner/satellite finder (optional)", "Replacement LNB (if faulty)", "Coax crimping tool and new F-connectors"],
+    "whenToEscalate": "If realignment doesn't restore signal and LNB swap doesn't help, check for line-of-sight obstruction or escalate to a dish-mounting/structural issue.",
+    "safetyNotes": "Never climb onto a roof or mast in wet/windy weather. Use proper fall protection when working at height."
+  },
+  {
+    "id": "dstv-e30-32",
+    "platform": "DStv",
+    "codes": ["E30-32", "E30 32", "E30"],
+    "keywords": ["channel not available", "please contact", "subscription"],
+    "title": "DStv E30 — Subscription / Decoder Authorisation Issue",
+    "likelyCauses": [
+      "Subscription expired or payment not yet reflected",
+      "Smart card not properly paired/activated with the decoder",
+      "Decoder hasn't connected to receive the latest entitlement update"
+    ],
+    "steps": [
+      "Confirm the account is paid up to date with the customer or via the self-service app/USSD.",
+      "Leave the decoder powered on and connected to satellite/internet for at least 30-60 minutes to receive an update.",
+      "Try a manual 'Reset Decoder' / 'Request Entitlement' option from the decoder menu if available.",
+      "Power-cycle the decoder (unplug 30 seconds, plug back in).",
+      "If the smart card was recently swapped, confirm it is pushed in fully and the correct way round."
+    ],
+    "partsOrToolsNeeded": [],
+    "whenToEscalate": "If payment is confirmed but the error persists after 2+ hours, escalate to the pay-TV provider's call centre to manually refresh the smart card.",
+    "safetyNotes": ""
+  },
+  {
+    "id": "dstv-e48-0",
+    "platform": "DStv",
+    "codes": ["E48-0", "E48"],
+    "keywords": ["smart card error", "card not detected", "insert smart card"],
+    "title": "DStv E48 — Smart Card Error",
+    "likelyCauses": ["Smart card inserted incorrectly or dirty contacts", "Damaged or expired smart card", "Card reader fault inside decoder"],
+    "steps": [
+      "Power off the decoder, remove the smart card, and inspect the gold contacts for dirt/scratches.",
+      "Gently clean the contacts with a dry, lint-free cloth (no liquids).",
+      "Re-insert the card the correct way (chip facing the correct direction per decoder label) and push fully in.",
+      "Power the decoder back on and wait for it to read the card.",
+      "If still failing, try the card in another decoder of the same type to isolate card vs reader fault."
+    ],
+    "partsOrToolsNeeded": ["Replacement smart card (if confirmed faulty)"],
+    "whenToEscalate": "If the card fails in a known-good decoder too, request a smart card replacement from the provider.",
+    "safetyNotes": ""
+  },
+  {
+    "id": "gotv-e60",
+    "platform": "GOtv",
+    "codes": ["E60", "E60-32", "E16 GOtv"],
+    "keywords": ["gotv no signal", "aerial", "weak signal"],
+    "title": "GOtv E60/E16 — No or Weak Terrestrial Signal",
+    "likelyCauses": ["Aerial misaligned or damaged", "Loose aerial cable connection", "Too far from transmission tower / obstruction", "Faulty aerial amplifier/booster (if fitted)"],
+    "steps": [
+      "Check the aerial cable connections at both the aerial and the decoder.",
+      "Inspect the aerial for physical damage or that it hasn't rotated out of position.",
+      "Run the decoder's signal strength test and note which channels/frequencies are weak.",
+      "Re-aim the aerial toward the known transmitter direction for the area in small increments.",
+      "If using a signal booster, check its power supply and that it is not overloading the signal.",
+      "Re-scan channels after any aerial adjustment."
+    ],
+    "partsOrToolsNeeded": ["Compass or known transmitter bearing", "Replacement aerial/booster if faulty"],
+    "whenToEscalate": "If no signal is achievable even with a known-good aerial in a good location, the area may be outside coverage — advise customer accordingly.",
+    "safetyNotes": "Use fall protection when adjusting roof-mounted aerials."
+  },
+  {
+    "id": "startimes-no-signal",
+    "platform": "StarTimes",
+    "codes": ["No Signal", "Signal Weak", "E16 StarTimes"],
+    "keywords": ["startimes no signal", "weak signal startimes"],
+    "title": "StarTimes — No / Weak Signal",
+    "likelyCauses": ["Dish/aerial misalignment", "Damaged LNB (satellite) or aerial (terrestrial)", "Loose cabling", "Bad weather"],
+    "steps": [
+      "Identify whether the StarTimes decoder is the satellite (dish) or digital terrestrial (aerial) variant.",
+      "Check and re-seat all cable connections at the decoder and antenna/dish end.",
+      "Open Menu > Signal Test and check the signal strength/quality bars.",
+      "For satellite: re-align the dish slightly while monitoring the signal meter.",
+      "For terrestrial: re-aim the aerial toward the nearest transmitter and re-scan.",
+      "Power-cycle the decoder after any adjustment."
+    ],
+    "partsOrToolsNeeded": [],
+    "whenToEscalate": "Escalate to StarTimes support if a hardware swap (LNB/aerial) does not restore signal.",
+    "safetyNotes": "Avoid working at height in wet or windy conditions."
+  },
+  {
+    "id": "smartcard-subscription-generic",
+    "platform": "Generic",
+    "codes": ["E04", "E16-32", "Please Subscribe"],
+    "keywords": ["please subscribe", "access denied", "scrambled"],
+    "title": "Generic — Subscription/Access Denied Message",
+    "likelyCauses": ["Payment not reflected yet", "Package downgrade/expiry", "Decoder not communicating with provider"],
+    "steps": [
+      "Verify payment status with the customer/provider app.",
+      "Ensure decoder has clear signal and is left on to receive entitlement updates for 30-60 minutes.",
+      "Power-cycle the decoder.",
+      "Check if a cheaper package was selected that excludes the scrambled channel."
+    ],
+    "partsOrToolsNeeded": [],
+    "whenToEscalate": "Contact the provider's call centre if payment is confirmed but access is still denied after a few hours.",
+    "safetyNotes": ""
+  },
+  {
+    "id": "tv-no-power",
+    "platform": "TV",
+    "codes": [],
+    "keywords": ["tv not turning on", "no power", "standby light not on", "dead tv", "blinking led no picture"],
+    "title": "TV — No Power / Won't Turn On",
+    "likelyCauses": ["Wall socket/power strip fault", "Loose or damaged power cable", "Blown internal fuse / failed power supply board", "Standby mode fault"],
+    "steps": [
+      "Confirm the wall socket works with another device (phone charger, lamp).",
+      "Check the power cable is firmly seated at both the TV and the socket; try a different cable if available.",
+      "Unplug the TV for 60 seconds (power drain), then plug back in and try powering on.",
+      "Check for a blinking standby LED pattern — count the blinks, this often indicates a specific fault code (refer to the TV brand's manual).",
+      "If completely dead with no LED at all, the internal power supply board or fuse has likely failed and needs a qualified repair technician."
+    ],
+    "partsOrToolsNeeded": ["Multimeter (to test socket/cable)"],
+    "whenToEscalate": "No LED activity at all after confirming mains power is good → escalate to board-level repair or replacement.",
+    "safetyNotes": "Always unplug the TV before opening the back panel. Capacitors can hold a charge after power-off — do not open the chassis unless trained."
+  },
+  {
+    "id": "tv-no-picture-has-sound",
+    "platform": "TV",
+    "codes": [],
+    "keywords": ["black screen", "no picture", "sound but no picture", "backlight", "dim screen"],
+    "title": "TV — No Picture but Sound Works",
+    "likelyCauses": ["Failed backlight/LED strips", "Faulty main board or T-con board", "Wrong input source selected", "HDMI cable/source issue"],
+    "steps": [
+      "Shine a torch close to the screen at an angle — if you can faintly see a picture, the backlight has failed (panel/board issue).",
+      "Confirm the correct HDMI/AV input source is selected.",
+      "Try a different HDMI cable and a different source device to rule out the cable/source.",
+      "If backlight is confirmed failed, this needs a panel/board level repair — not user-serviceable."
+    ],
+    "partsOrToolsNeeded": ["Torch/phone light"],
+    "whenToEscalate": "Backlight or T-con board failure requires a TV repair technician with the correct replacement parts.",
+    "safetyNotes": "Do not open the TV panel — high voltage components inside even when unplugged (capacitor discharge risk)."
+  },
+  {
+    "id": "remote-not-responding",
+    "platform": "Remote",
+    "codes": [],
+    "keywords": ["remote not working", "remote not responding", "buttons not working", "ir not working"],
+    "title": "Remote Control Not Responding",
+    "likelyCauses": ["Dead/weak batteries", "IR sensor on TV/decoder blocked or dirty", "Remote not paired (for RF/Bluetooth remotes)", "Faulty remote"],
+    "steps": [
+      "Replace the batteries with fresh ones, checking correct polarity.",
+      "Clean the IR emitter (front of remote) and the IR receiver window on the TV/decoder.",
+      "Test the remote using a phone camera — point the remote at the camera and press a button; a working IR remote will show a flickering purple/white light on screen.",
+      "If no light shows, the remote's IR LED has likely failed — try a replacement remote.",
+      "For RF/Bluetooth remotes, re-pair following the decoder/TV's pairing procedure.",
+      "Remove any obstruction between remote and the device's sensor."
+    ],
+    "partsOrToolsNeeded": ["Batteries", "Replacement remote (if confirmed faulty)"],
+    "whenToEscalate": "If a known-good replacement remote also fails to control the device, the IR/RF receiver inside the TV/decoder may be faulty.",
+    "safetyNotes": ""
+  },
+  {
+    "id": "hdmi-no-signal-source",
+    "platform": "TV/Decoder",
+    "codes": [],
+    "keywords": ["hdmi no signal", "no signal source", "blue screen no signal"],
+    "title": "'No Signal' on TV with Decoder/Source Connected via HDMI",
+    "likelyCauses": ["Wrong HDMI input selected", "Loose/faulty HDMI cable", "Source device in standby", "HDMI port fault (TV or source)"],
+    "steps": [
+      "Confirm the TV is set to the correct HDMI input number matching the cable used.",
+      "Check the decoder/source device is powered on (not just the TV).",
+      "Re-seat the HDMI cable at both ends; try a different cable.",
+      "Try the same cable/source on a different HDMI port on the TV to isolate a faulty port.",
+      "Power-cycle both the TV and the source device."
+    ],
+    "partsOrToolsNeeded": ["Spare HDMI cable"],
+    "whenToEscalate": "If the source works on another TV's HDMI port but not on this TV's ports, the TV's HDMI board needs repair.",
+    "safetyNotes": ""
+  },
+  {
+    "id": "decoder-stuck-booting",
+    "platform": "Decoder",
+    "codes": [],
+    "keywords": ["stuck on logo", "stuck booting", "decoder restarting loop", "frozen decoder"],
+    "title": "Decoder Stuck on Boot Logo / Restart Loop",
+    "likelyCauses": ["Corrupted software update", "Failed internal storage/hard drive (PVR decoders)", "Power supply instability"],
+    "steps": [
+      "Unplug the decoder from power for a full 2 minutes, then plug back in.",
+      "If it has a reset button/pinhole, perform a factory reset per the manual (note: this may erase recordings).",
+      "Check the power is stable (not from an overloaded extension strip); plug directly into a wall socket.",
+      "If the decoder has a hard drive (PVR), listen for unusual clicking sounds, indicating drive failure.",
+      "If reset does not resolve it, the decoder likely needs a technician-level software re-flash or unit swap."
+    ],
+    "partsOrToolsNeeded": [],
+    "whenToEscalate": "Escalate to provider's technical support/unit swap if factory reset does not resolve the loop.",
+    "safetyNotes": ""
+  }
+]

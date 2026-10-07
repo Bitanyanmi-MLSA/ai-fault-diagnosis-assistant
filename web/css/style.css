@@ -1,0 +1,180 @@
+:root {
+  --bg: #0f172a;
+  --panel: #ffffff;
+  --panel-muted: #f1f5f9;
+  --text: #0f172a;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --good: #16a34a;
+  --warn: #d97706;
+  --bad: #dc2626;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 220px, #f1f5f9 220px, #f1f5f9 100%);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 20px 10px;
+  color: white;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand-icon { font-size: 2rem; }
+.topbar h1 { margin: 0; font-size: 1.3rem; }
+.subtitle { margin: 2px 0 0; color: #cbd5e1; font-size: 0.9rem; }
+
+.icon-btn {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 20px 16px 60px;
+}
+
+.card {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 18px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.card h2 { margin-top: 0; font-size: 1.05rem; }
+
+.field { margin-bottom: 14px; }
+.field label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #334155; }
+
+input[type="text"], input[type="url"], select, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+textarea { resize: vertical; }
+
+.preview-wrap { margin-top: 12px; }
+.preview-wrap img, .preview-wrap video { max-width: 100%; border-radius: 8px; display: block; }
+.hidden { display: none !important; }
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  padding: 6px 0;
+  font-size: 0.85rem;
+  text-decoration: underline;
+}
+
+.hint { color: var(--muted); font-size: 0.82rem; margin: 6px 0 0; }
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.primary-btn {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.primary-btn:hover { background: var(--accent-dark); }
+.primary-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.status-text { color: var(--muted); font-size: 0.9rem; }
+
+.result-card { border: 2px solid var(--accent); }
+.result-header { display: flex; justify-content: space-between; align-items: center; }
+.badge {
+  background: var(--panel-muted);
+  color: var(--muted);
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.confidence { margin: 6px 0 14px; font-size: 0.85rem; font-weight: 600; }
+.confidence.high { color: var(--good); }
+.confidence.medium { color: var(--warn); }
+.confidence.low { color: var(--bad); }
+
+#resultBody h3 { margin-bottom: 6px; font-size: 0.95rem; }
+#resultBody ul { margin-top: 4px; padding-left: 20px; }
+#resultBody li { margin-bottom: 6px; line-height: 1.4; }
+.safety-note {
+  background: #fef2f2;
+  border-left: 4px solid var(--bad);
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-top: 14px;
+  font-size: 0.88rem;
+}
+
+.kb-list { display: grid; gap: 10px; margin-top: 12px; }
+.kb-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+.kb-item:hover { border-color: var(--accent); background: #eff6ff; }
+.kb-item .plat { font-size: 0.72rem; font-weight: 700; color: var(--accent); text-transform: uppercase; }
+.kb-item h4 { margin: 4px 0; font-size: 0.95rem; }
+.kb-item .codes { font-size: 0.78rem; color: var(--muted); }
+
+footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px 40px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-align: center;
+}
+
+dialog {
+  border: none;
+  border-radius: 12px;
+  padding: 22px;
+  max-width: 420px;
+  width: 90%;
+}
+dialog::backdrop { background: rgba(15,23,42,0.5); }
+dialog h3 { margin-top: 0; }
+dialog menu { display: flex; justify-content: flex-end; gap: 10px; padding: 0; margin-top: 16px; }
+dialog button { padding: 8px 16px; border-radius: 8px; border: 1px solid #cbd5e1; background: white; cursor: pointer; }
+#saveSettingsBtn { background: var(--accent); color: white; border-color: var(--accent); }
