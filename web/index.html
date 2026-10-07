@@ -33,17 +33,17 @@
         </select>
       </div>
       <div class="field">
-        <label for="errorCode">Error code / on-screen message (if any)</label>
-        <input id="errorCode" type="text" placeholder="e.g. E16-4, E60, 'No Signal'" />
+        <label for="symptoms">Describe the issue (you can submit just this — no error code or photo needed)</label>
+        <textarea id="symptoms" rows="4" placeholder="e.g. Screen is black but decoder light is on, remote not responding, picture is pixelated, no sound..."></textarea>
       </div>
       <div class="field">
-        <label for="symptoms">Symptoms (describe what's happening)</label>
-        <textarea id="symptoms" rows="3" placeholder="e.g. Screen is black but decoder light is on, remote not responding..."></textarea>
+        <label for="errorCode">Error code / on-screen message (optional, if you have one)</label>
+        <input id="errorCode" type="text" placeholder="e.g. E16-4, E60, 'No Signal'" />
       </div>
     </section>
 
     <section class="card">
-      <h2>2. Add a photo or short video (optional, improves accuracy)</h2>
+      <h2>2. Add a photo or short video (optional — a text description alone works too)</h2>
       <div class="field">
         <input id="fileInput" type="file" accept="image/*,video/*" capture="environment" />
       </div>

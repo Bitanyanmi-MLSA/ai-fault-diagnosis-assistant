@@ -161,7 +161,7 @@
     const symptoms = el('symptoms').value.trim();
 
     if (!errorCode && !symptoms && !selectedImageDataUrl) {
-      setStatus('Please enter an error code/symptoms or attach a photo/video.');
+      setStatus('Please describe the issue, enter an error code, or attach a photo/video.');
       return;
     }
 
