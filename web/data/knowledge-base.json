@@ -192,6 +192,55 @@
     "safetyNotes": ""
   },
   {
+    "id": "smarttv-builtin-tuner-no-channels",
+    "platform": "Smart TV (no decoder)",
+    "codes": [],
+    "keywords": ["no decoder", "built in tuner", "built-in tuner", "no channels found", "auto tune", "antenna scan", "free to air", "no signal no decoder"],
+    "title": "Smart TV with Built-in Tuner — No Channels Found (No External Decoder)",
+    "likelyCauses": [
+      "Aerial/antenna not connected or connected to the wrong RF/ANT input",
+      "Auto channel scan not yet run, or run with the wrong region/country setting",
+      "Weak or no terrestrial signal in the area",
+      "TV set to the wrong source (should be 'TV'/'Antenna', not HDMI) for built-in tuner channels"
+    ],
+    "steps": [
+      "Confirm there is no set-top box/decoder — the TV's own built-in tuner is being used directly.",
+      "Check the aerial/antenna cable is firmly connected to the TV's RF/ANT-IN port (not a decoder, since there isn't one).",
+      "On the TV, select the correct input/source: 'TV' or 'Antenna' (not HDMI/AV).",
+      "Go to Settings > Channel/Broadcast setup > Auto Tune (wording varies by brand) and run a full channel scan, confirming the correct country/region.",
+      "If zero or very few channels are found, check signal strength in the TV's tuner menu and consider repositioning/replacing the aerial.",
+      "For areas with only satellite coverage, note that most smart TVs need an external satellite decoder — a built-in tuner alone usually only receives free-to-air terrestrial (DVB-T2) channels, not satellite."
+    ],
+    "partsOrToolsNeeded": ["Indoor/outdoor aerial (if missing or damaged)"],
+    "whenToEscalate": "If signal is confirmed present at the aerial but the TV still finds no channels after a rescan, the TV's internal tuner may be faulty — escalate for repair.",
+    "safetyNotes": "Use fall protection when adjusting roof-mounted aerials."
+  },
+  {
+    "id": "smarttv-apps-wifi-issues",
+    "platform": "Smart TV (no decoder)",
+    "codes": [],
+    "keywords": ["smart tv app", "netflix not working", "youtube not loading", "wifi not connecting", "smart tv wifi", "app crashing", "streaming buffering", "cast not working", "screen mirroring"],
+    "title": "Smart TV — Streaming Apps / Wi-Fi / Casting Not Working (No Decoder Involved)",
+    "likelyCauses": [
+      "TV not connected to Wi-Fi, or weak/unstable Wi-Fi signal",
+      "App needs an update or has a temporary server-side outage",
+      "TV's smart platform software is outdated",
+      "Router/network issue (DNS, internet down) rather than the TV itself"
+    ],
+    "steps": [
+      "Confirm the issue is with the TV's own smart platform/apps, not an external decoder (no decoder is involved in this fault).",
+      "Check Settings > Network on the TV — confirm it shows 'Connected' with a good signal strength; reconnect to Wi-Fi if needed.",
+      "Test another device (phone) on the same Wi-Fi to rule out a broader internet/router problem.",
+      "Restart the TV (unplug 30 seconds) and the router/modem.",
+      "Update the specific app (e.g., Netflix, YouTube) via the TV's app store, and check for a pending TV system/software update.",
+      "If only one app fails across multiple networks, suspect a server-side outage with that streaming service.",
+      "For casting/screen mirroring, ensure both the TV and the mobile device are on the same Wi-Fi network."
+    ],
+    "partsOrToolsNeeded": [],
+    "whenToEscalate": "If Wi-Fi connects fine but all apps fail and a software update doesn't help, the TV's smart platform/firmware may need a factory reset or technician-level reflash.",
+    "safetyNotes": ""
+  },
+  {
     "id": "decoder-stuck-booting",
     "platform": "Decoder",
     "codes": [],
